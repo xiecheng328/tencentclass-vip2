@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义右键菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 2000px;
+        }
+
+        #menu {
+            width: 120px;
+            border: 1px solid #000;
+            display: none;
+            position: absolute;
+            /* 思考为什么要用绝对定位 */
+            /* top: 100px;
+            left: 100px; */
+            background-color: #fff;
+        }
+
+        #menu .item {
+            list-style: none;
+            width: 120px;
+            height: 30px;
+            border-bottom: 1px dashed #ccc;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        /* css3选择器，选中最后一个孩子 */
+        #menu .item:last-child {
+            border: none;
+        }
+
+        #menu .item:hover {
+            background-color: #ccc;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 
+        分析：
+        1、制作出一个菜单，默认情况下菜单不显示的
+        2、右键，显示菜单，显示在鼠标光标位置
+        3、点击网页其他位置，菜单消失
+        4、点击哪个菜单，就显示该菜单的内容
+
+
+        live server
+     -->
+
+    <h1>青盟科技</h1>
+    <h1>青盟科技</h1>
+    <h1>青盟科技</h1>
+    <h1>青盟科技</h1>
+    <h1>青盟科技</h1>
+    <h1>青盟科技</h1>
+    <h1>青盟科技</h1>
+    <ol id="menu">
+        <li class="item">菜单1</li>
+        <li class="item">菜单2</li>
+        <li class="item">菜单3</li>
+        <li class="item">菜单4</li>
+        <li class="item">菜单5</li>
+        <li class="item">菜单6</li>
+        <li class="item">菜单7</li>
+    </ol>
+
+
+    <script>
+        var oMenu = document.getElementById('menu'); // 通过id获取menu元素
+        var aLis = oMenu.getElementsByTagName('li'); // 通过标签名称获取到一堆li元素
+
+        // console.log(oMenu.innerHTML);
+        // 右键菜单
+        window.oncontextmenu = function (e) {
+            // console.log(e.clientX, e.clientY);
+            e = e || window.event; //事件对象兼容性
+            oMenu.style.display = 'block'; // 菜单显示
+
+            // 获取滚动条滚动的高度
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop; // 兼容性问题
+            var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+            oMenu.style.top = e.clientY + scrollTop + 'px'; // 设置菜单垂直的位置
+            oMenu.style.left = e.clientX + scrollLeft + 'px'; // 设置菜单水平的位置
+
+            return false; // 阻止默认行为 
+        };
+
+
+        // 点击网页其他部分，菜单消失
+        window.onclick = function () {
+            oMenu.style.display = 'none';
+        };
+
+        // 循环遍历类数组aLis里面的七个li，给每个li绑定点击事件
+        // i=0\1\2\3\4\5\6
+        // for结束的时候i=7
+        for (var i = 0; i < aLis.length; i++) {
+            aLis[i].onclick = function () {
+                // alert('hello');
+                // console.log(i); // 7???  重点！！回去多看！！！
+                alert(this.innerHTML); // this当前对象，也就是当前点击的li对象
+            };
+        }
+    </script>
+</body>
+
+</html>

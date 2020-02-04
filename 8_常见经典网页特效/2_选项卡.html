@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选项卡</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #container {
+            width: 400px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+
+        #nav {
+            height: 30px;
+            border-bottom: 1px solid #000;
+        }
+
+        #nav li {
+            float: left;
+            /* 浮动的元素脱离文档流 */
+            width: 120px;
+            height: 30px;
+            background: #cccccc;
+            margin-right: 5px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        #nav .nav-selected {
+            background: #000000;
+            color: #fff;
+        }
+
+        #content div {
+            display: none;
+        }
+
+        #content .content-selected {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        分析：
+        1、完成初始样式html+css
+        2、找到上面的选项，绑定相应事件
+        3、点击选项的时候，切换：
+            (1) 选项的样式
+            (2) 对应的内容也要切换
+     -->
+    <div id="container">
+        <ul id="nav">
+            <li class="nav-selected">html</li>
+            <li>css</li>
+            <li>javascript</li>
+        </ul>
+        <div id="content">
+            <div class="content-selected">学习html</div>
+            <div>学习css</div>
+            <div>
+                <p>欢迎来到青盟课堂</p>
+                <img src="https://p.qpic.cn/qqcourse/QFzQYCgCrxk3mSE06Sa8ZiaFA5PhKdicZukqGaUD8FF6icw39ksK7gqpHKpBPftXghC/" alt="">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // 找到三个选项
+        var oNav = document.getElementById('nav');
+        // HTMLCollection 类数组
+        var aLis = oNav.getElementsByTagName('li');
+        var oContent = document.getElementById('content');
+        var aDivs = oContent.getElementsByTagName('div');
+
+        console.log(aLis);
+        // 循环遍历li的集合，给每个li元素分别绑定事件
+        for (var i = 0; i < aLis.length; i++) {
+            console.log(aLis[i]);
+            aLis[i].index = i; // 重点!!! 给每个li对象自定义index属性，保存住循环时候i对应的值
+            /*  
+                // 相当于
+                aLis[0].index = 0;
+                aLis[1].index = 1;
+                aLis[2].index = 2;
+             */
+            aLis[i].onclick = function () {
+                // console.log(i); // i = 3 ???
+                // 给所有li的class都去掉
+                for (var i = 0; i < aLis.length; i++) {
+                    aLis[i].className = '';
+                    aDivs[i].className = '';
+                }
+                // 当前 this
+                console.log(this.index); // 0\1\2
+                this.className = 'nav-selected'; // 当前选中的li设置class属性
+                // 当前li对应的div.className = 'content-selected'
+                aDivs[this.index].className = 'content-selected';
+            };
+
+
+            /* 
+            aLis[0].onclick = function(){
+                console.log(i);
+            };
+            aLis[1].onclick = function(){
+                console.log(i);
+            };
+            aLis[2].onclick = function(){
+                console.log(i);
+            };
+            */
+
+        }
+
+        // 循环结束的时候  i = 3
+    </script>
+</body>
+
+</html>

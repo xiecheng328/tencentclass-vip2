@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>轮播图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        #container {
+            width: 520px;
+            height: 280px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #imgs img {
+            display: none;
+        }
+
+        #imgs .selected {
+            display: block;
+        }
+
+        #nav {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        #nav li,
+        #arrows span {
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            float: left;
+            cursor: pointer;
+            margin-right: 5px;
+        }
+
+        #nav .nav-selected {
+            background: orange;
+        }
+
+        #arrows {
+            position: absolute;
+            left: 10px;
+            bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <h1>青&nbsp;&nbsp;&nbsp;&nbsp;盟</h1> -->
+    <div id="container">
+        <div id="imgs">
+            <img src="img/1.jpg" alt="" class="selected">
+            <img src="img/2.jpg" alt="">
+            <img src="img/3.jpg" alt="">
+            <img src="img/4.jpg" alt="">
+        </div>
+        <ul id="nav">
+            <li class="nav-selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrows">
+            <span id="prev">&lt;</span>
+            <span id="next">&gt;</span>
+        </div>
+    </div>
+
+
+    <script>
+        var oContainer = document.getElementById('container');
+        var oNav = document.getElementById('nav');
+        var aLis = oNav.getElementsByTagName('li');
+        var oImgs = document.getElementById('imgs');
+        var aImg = oImgs.getElementsByTagName('img');
+        var oPrev = document.getElementById('prev');
+        var oNext = document.getElementById('next');
+        var iNowIndex = 0; // 全局变量，保存当前显示的索引
+        var timer = null; // 播放的定时器
+
+        for (var i = 0; i < aLis.length; i++) {
+            aLis[i].idx = i; // 给每一个li对象自定义属性idx，保存住循环时候i的值
+            aLis[i].onmouseover = function () {
+                // console.log(this.idx);
+                iNowIndex = this.idx; // 全局索引赋值
+                changeImg(); // 切换图片
+            };
+        }
+
+        /* 
+            往后： nav+1 对应的nav变色  对应的图片显示
+            往前： nav-1 对应的nav变色  对应的图片显示 
+         */
+        oPrev.onclick = oNext.onclick = function () {
+            // console.log(iNowIndex)
+            if (this === oNext) { // 往后
+                iNowIndex++; // 2 -> 3
+                if (iNowIndex === aLis.length) {
+                    iNowIndex = 0;
+                }
+            } else { // 往前
+                iNowIndex--;
+                if (iNowIndex === -1) {
+                    iNowIndex = aLis.length - 1;
+                }
+            }
+            changeImg(); // 切换图片
+        };
+
+        // 停止播放
+        oContainer.onmouseover = function () {
+            clearInterval(timer);
+        };
+
+        // 继续播放
+        oContainer.onmouseout = function () {
+            play();
+        };
+
+        // 自动播放
+        play();
+
+        // 切换图片
+        function changeImg() {
+            for (var i = 0; i < aLis.length; i++) {
+                aLis[i].className = '';
+                aImg[i].className = '';
+            }
+            aLis[iNowIndex].className = 'nav-selected';
+            aImg[iNowIndex].className = 'selected';
+        }
+
+        function play() {
+            timer = setInterval(function () {
+                oNext.onclick();
+            }, 2000);
+        }
+
+        /* if(1 === '1'){
+            console.log(true);
+        }else{
+            console.log(false);
+        } */
+    </script>
+</body>
+
+</html>

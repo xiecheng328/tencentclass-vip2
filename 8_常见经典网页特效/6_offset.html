@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #container{
+            width: 500px;
+            height: 500px;
+            background: #cccccc;
+            position: relative;
+            top: 100px;
+            left: 200px;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: absolute;
+            top: 80px;
+            left: 120px;
+            padding: 10px;
+            border: 10px solid;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="box"></div>
+    </div>
+
+    <script>
+        var oBox = document.getElementById('box');
+        console.log(oBox.offsetParent);
+        console.log('offsetLeft = ' + oBox.offsetLeft);
+        console.log('offsetTop = ' + oBox.offsetTop);
+        console.log('offsetWidth = ' + oBox.offsetWidth) // oBox.offsetWidth = 500 赋值是错误的
+        console.log('offsetHeight = ' + oBox.offsetHeight)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #progress{
+            width: 5px;
+            height: 10px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="progress"></div>
+
+    <script>
+        var oProgress = document.getElementById('progress');
+        var w = 0;
+        function fn(){
+            w += 5;
+            oProgress.style.width = w + 'px';
+            if(w < 800){
+                requestAnimationFrame(fn);
+            }
+        }
+        requestAnimationFrame(fn);
+
+
+    </script>
+</body>
+</html>

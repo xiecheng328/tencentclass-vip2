@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+       
+    </style>
+</head>
+
+<body>
+    <button id="move">点我</button>
+    <div id="box"></div>
+
+    <script src="jquery-3.4.1.js"></script>
+    <script>
+        $(function(){
+            $('#move').on('click', function(){
+                $('#box').animate({
+                    width: 500,
+                    height: 500
+                })
+            });
+        });
+
+
+       
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="move">点我移动</button>
+
+    <div id="box"></div>
+
+    <script>
+        var oMoveBtn = document.getElementById('move');
+        var oBox = document.getElementById('box');
+        oMoveBtn.onclick = function () {
+            var timer = setInterval(function () {
+                if (oBox.offsetLeft > 500) {
+                    clearInterval(timer);
+                }
+                oBox.style.left = oBox.offsetLeft + 20 + 'px';
+            }, 30);
+        };
+    </script>
+</body>
+
+</html>

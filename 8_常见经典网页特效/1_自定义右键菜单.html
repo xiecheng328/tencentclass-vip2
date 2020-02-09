@@ -85,7 +85,7 @@
 
         // console.log(oMenu.innerHTML);
         // 右键菜单
-        window.oncontextmenu = function (e) {
+        window.document.oncontextmenu = function (e) {
             // console.log(e.clientX, e.clientY);
             e = e || window.event; //事件对象兼容性
             oMenu.style.display = 'block'; // 菜单显示
@@ -102,7 +102,7 @@
 
 
         // 点击网页其他部分，菜单消失
-        window.onclick = function () {
+        window.document.onclick = function () {
             oMenu.style.display = 'none';
         };
 

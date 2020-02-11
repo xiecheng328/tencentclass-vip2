@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function Animal(name,xx){
+        this.name = name;
+        this.xx = xx
+    }
+
+    Animal.prototype.eat = function(){
+        console.log("eating...");
+    }
+
+
+    function Dog(name,age,xx){
+        this.age = age;
+        Animal.call(this,name,xx);//继承属性
+    }
+
+    Dog.prototype = new Animal(); //原型继承，继承父类方法
+    Dog.prototype.constructor = Dog;
+    console.log(Dog.prototype);
+
+    var d1 = new Dog('wangcai',3,10);
+    d1.eat();
+
+
+
+
+</script>
+</body>
+</html>

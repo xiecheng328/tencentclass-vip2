@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+万物皆对象
+dom对象   div img li
+<img src="" width="" alt="">
+
+类  -- 人类  class
+
+实例化对象
+
+类是对象的模板，定义了同一组对象共有的属性和方法
+js是基于面向对象的语言，es6
+
+<script>
+
+    function Person(name,age){ //首字母大写 构造方法
+        this.name = name;
+        this.age = age;
+//        return {a:1};
+    }
+
+    var p3 =  new Person("lisi",23);//实例化对象p3
+    var p4 =  new Person("wangwu",18);//实例化对象p3
+    console.log(p3);
+    console.log(p4);
+
+//    var res = Person(); //undefined
+
+
+    console.log(Person.prototype);
+
+//    Person.prototype.age = ;
+    Person.prototype.say = function(){ //原型对象  原型链
+        console.log(this.age);
+    };
+//
+//    总结：
+//    定义类的时候，类名首字母大写，属性放到构造函数里面，方法定义在原型对象里面
+//
+//    1.属性放到原型对象里面会有什么问题？
+//        基本数据类型，没有问题
+//        引用数据类型，实例化对象共享数据
+//
+//    2.方法放到构造函数里面会有什么问题？
+//        每次实例化对象的时候，都会创建重复的函数，浪费内存空间
+
+//    3.类的构造函数里面加入了返回值的话？
+//        返回基本数据类型 没有变化 得到的还是对应的实例对象
+//        返回引用数据类型， 得到的就是返回值
+
+    var p1 =  new Person();//实例化对象p1
+    p1.say();
+//    p1.age.a = 15;
+
+
+    var p2 =  new Person();//实例化对象p2
+    p2.say();
+
+
+</script>
+</body>
+</html>

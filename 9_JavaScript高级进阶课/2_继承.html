@@ -9,7 +9,7 @@
 
     function Animal(name,xx){
         this.name = name;
-        this.xx = xx
+        this.xx = xx;
     }
 
     Animal.prototype.eat = function(){
@@ -28,6 +28,16 @@
 
     var d1 = new Dog('wangcai',3,10);
     d1.eat();
+
+
+
+
+    function fn(name){
+        console.log(this);//window
+        console.log(name);//window
+    }
+
+    fn.call({xx:11},"yy");
 
 
 

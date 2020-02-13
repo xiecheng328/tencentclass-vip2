@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function Animal(name){
+        this.name = name;
+    }
+
+    Animal.prototype.eat = function(){
+        console.log("eating...");
+    }
+
+
+//    console.log(Animal.prototype === a1.__proto__);
+//    console.log(Animal.prototype.constructor === Animal);
+
+
+    function Dog(name){
+        Animal.call(this,name);//继承属性
+    }
+
+    var a = new Animal();
+
+    Dog.prototype = a; //原型继承，继承父类方法
+    Dog.prototype.constructor = Dog;
+
+
+    var d = new Dog("wangcai");
+//    d.__proto__ === Dog.prototype
+    Dog.prototype.__proto__ === Animal.prototype
+
+//    Object
+
+
+
+//    console.log();
+    //    Animal.prototype
+    // 对象具有属性__proto__，称为隐式原型,
+    // 一个对象的__proto__指向该对象的构造函数的原型
+
+//    原型链，主要是为了实现对象的继承的。
+//    __proto__
+</script>
+</body>
+</html>

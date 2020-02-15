@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //this 变量提升
+//    var f;
+//    f();
+
+//    function f(){
+//        console.log(1);
+//    }
+
+//    function fn(){
+    //        console.log(1);
+    //    }
+    //
+    //    fn();
+    //
+    //    function fn(){
+    //        console.log(2);
+    //    }
+    //    fn(); //栈
+
+
+//    1.this永远指向一个对象
+//    2.this的指向取决于函数的调用的位置
+
+
+//    1.函数调用模式
+
+//    function a(){
+//        var b = "hello";
+//        console.log(this.b);
+//        console.log(this);
+//    }
+//    a();
+//
+//    setTimeout(function(){
+//        console.log(this);
+//    },1000);
+//    setInterval();
+
+//    2.方法调用模式
+
+//    var o = {
+//        name:"hello",
+//        b:{
+////            name:"world",
+//            fn:function(){
+//                console.log(this.name);
+//                console.log(this);
+//            }
+//        }
+//    }
+//    o.b.fn();
+
+    var name = "外面";
+    var o = {
+        name:"hello",
+        b:{
+            name:"world",
+            fn:function(){
+                console.log(this.name);
+                console.log(this);
+            }
+        }
+    }
+    var t = o.b.fn;
+    t();//全局
+
+//---------------------
+
+    var xx = 2;
+    function fun(){
+        console.log(this.xx);
+    }
+
+    var obj = {
+        xx:1,
+        f:fun
+    }
+
+    obj.f();//1
+    fun();//2
+
+
+    //-----------------
+
+
+    function zz(obj){
+        obj.name = "zs";
+        console.log(obj.name);
+    }
+
+    var yy = {
+        name:"lisi"
+    }//引用传递
+
+    zz(yy);
+    console.log(yy.name);
+
+
+
+
+
+//    3.构造函数调用模式
+
+    //.....
+
+//    4.apply、call、bind调用模式
+
+    function f(a,b){
+        console.log(this);
+        console.log(a);
+        console.log(b);
+    }
+    var o = {
+        xx:1
+    }
+
+    f.call(o,2,3);
+    f.apply(o,[2,3]);
+
+    //返回一个函数
+    f.bind(o,2,3)();
+
+
+//    总结：
+//    在全局范围内，this指向全局对象  window
+//    对象函数调用时，this指向当前对象
+//    使用new关键字实例化对象，this指向新创建的对象
+//    当使用call，apply,bind调用的时候，指向传入的第一个参数
+
+
+
+
+
+</script>
+</body>
+</html>

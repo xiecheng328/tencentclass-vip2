@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+//    function out(){
+//        var inV = "内层变量";
+//    }
+//    var a = 1;
+//    out();
+//    console.log(inV);
+
+
+//    全局作用域和函数作用域（局部）
+
+//    1.最外层函数 和 在最外层函数外面定义的变量
+
+    var outV =  "最外层变量";
+    function out(){
+        var inV = "内层变量";
+        function inFun(){
+            console.log(inV);
+        }
+        inFun();
+    }
+    console.log(outV);//
+    out();
+//    console.log(inV);
+//    inFun();
+
+//    2.所有未定义直接赋值的变量自动声明为全局变量
+
+    function out2(){
+        v = "未定义的变量";
+        var v2 = "内层变量";
+    }
+
+    out2();
+    console.log(v);
+//    console.log(v2);
+
+//  3. 所有window对象的属性都拥有全局作用域
+
+    console.log(window);
+
+
+
+
+(function(){
+    console.log(11);
+})();
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

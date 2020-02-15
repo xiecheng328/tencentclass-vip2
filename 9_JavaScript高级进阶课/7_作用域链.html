@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //作用域链
+//
+//    var x = 10;
+//    function fn(){
+//        console.log(x);
+//    }
+//
+//
+//    function fn2(f){
+//        var x = 20;
+//        (function(){
+//            f();
+//        })();
+//    }
+////    要到"创建" fn函数的那个作用域中取
+//
+//    fn2(fn);
+
+
+    var a = 10;
+    function fn(){
+        var b = 20;
+        function bar(){
+            console.log(a + b);
+        }
+        return bar;
+    }
+    var x = fn(),
+    b = 200;
+
+    x();
+
+
+</script>
+</body>
+</html>

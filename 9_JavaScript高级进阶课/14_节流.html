@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //  节流函数 
+        function throttle(fn, delay) {
+            var startTime = 0;
+            return function () { // 闭包
+                var nowTime = Date.now();
+                if (nowTime - startTime >= delay) {
+                    fn();
+                    startTime = nowTime;
+                }
+            };
+        }
+
+        function handle() {
+            console.log(Math.random())
+        }
+
+        window.document.addEventListener('mousemove', throttle(handle, 1000));
+    </script>
+</body>
+
+</html>

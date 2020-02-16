@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*  for (let i = 0; i < 3; i++) {
+            setTimeout(function(){
+                console.log(i);
+            }, 1000);
+        }
+        console.log('17行，' + i); */
+        // 循环结束的时候 i = 3
+
+        // ES6  var -> let    ES6->ES5 babel
+
+        for (var i = 0; i < 3; i++) {
+            (function (idx) {
+                setTimeout(function () {
+                    console.log(idx);
+                }, 1000);
+            })(i);
+        }
+
+
+       /*  var fn = function(idx){
+            console.log(idx);
+        };
+        var i = 123;
+        fn(i);
+
+        (function(idx){
+            console.log(idx);
+        })(i) */
+
+
+
+
+
+        // (function(){})();
+    </script>
+</body>
+
+</html>

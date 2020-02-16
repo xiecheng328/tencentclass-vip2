@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 闭包
+
+        // var num = 1;
+
+       /*  function foo() {
+            // var num = 2;
+
+            function bar() {
+                // var num = 3;
+                console.log(num);
+            }
+            bar();
+        }
+        foo();
+
+        var schoolName = 'qingmeng'; */
+
+
+        /* var num = 1;
+        function foo(){
+            console.log(num); // 1
+        }
+
+        function bar(){
+            var num = 2;
+            foo();
+        }
+
+        bar(); */
+
+        // 词法作用域:函数在定义他们的作用域里运行，不是在调用他们的作用域里运行
+
+        // 闭包：外部函数里面定义内部函数，内部函数调用外部函数的局部变量，外部函数的变量不被释放
+
+        function foo(){
+            var num = 1; // 局部变量
+            /* function bar(){
+                console.log(num);
+            }
+            return bar; */
+            
+            return function(){
+                // debugger;
+                console.log(num);
+            };
+        }
+
+        var baz = foo();
+        baz();
+
+
+        
+
+    </script>
+</body>
+
+</html>

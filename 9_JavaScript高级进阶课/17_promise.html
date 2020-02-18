@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6   ECMAScript6
+        new Promise(function(resolve, reject){
+            setTimeout(function(){
+                console.log(1);
+                resolve(); // 成功
+                // reject(); // 失败
+            }, 2000)
+        }).then(function(){
+            console.log('成功', 2);
+        }).catch(function(){
+            console.log('失败', 3)
+        }).finally(function(){
+            console.log('finally', 4)
+        })
+
+
+
+    </script>
+</body>
+</html>

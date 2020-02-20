@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //箭头函数
+//    箭头函数中的this指向定义时的this,而不是执行时的this
+//
+//    let obj = {
+//        name:'zs',
+//        say:function () {
+//            let self = this;
+//            setTimeout(function(){
+//                console.log(self.name);
+//            },1000);
+//        }
+//    }
+//    obj.say();
+
+
+//    let fn = function(a,b){
+//        console.log("hello");
+//    }
+//
+//    fn = (a,b) =>{console.log("hello")};
+//
+//        let obj = {
+//            name:'zs',
+//            say:function () {
+//                setTimeout(()=>{
+//                    console.log(this.name);
+//                },1000);
+//            }
+//        }
+//        obj.say();
+
+//    1. 箭头函数this为父作用域的this,不是调用时的this
+
+
+//    2.箭头函数不能作为构造函数，不能使用new
+
+//    function Person(){
+//        this.name = "zs";
+//    }
+//
+//    let Person = ()=>{
+//        this.name = 'lisi';
+//    }
+//3.箭头函数没有arguments
+//    function fn(){
+//        console.log(arguments[0]);
+//    }
+//
+    let fn = (a,...c)=>{
+//        ...
+        console.log(a);
+        console.log(c);
+    }
+    fn(1,2,3);
+
+//4.箭头函数不能使用call,apply bind改变this指向
+
+    fn({},1,2,3);
+//5.箭头函数没有原型属性
+//    prototype
+console.log(fn.prototype);
+
+
+
+
+
+</script>
+</body>
+</html>

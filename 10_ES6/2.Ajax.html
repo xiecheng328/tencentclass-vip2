@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <form action="">
+        <input type="text">
+
+        <input type="submit">
+    </form> -->
+    <ul id="list"></ul>
+
+    <script src="jquery-3.4.1.js"></script>
+    <script>
+        // AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。
+        // 如何使用jquery发送ajax请求
+        $.get('http://musicapi.xiecheng.live/personalized', res => {
+            console.log(res.result)
+            let $list = $('#list');
+            for (let i = 0; i < res.result.length; i++  ) {
+                let $li = $(`<li>${res.result[i].name}</li>`);
+                $list.append($li);
+            }
+        }, 'json')
+
+
+        
+
+
+        // 省 市 区县
+        // 黑龙江  哈尔滨  南岗区
+    </script>
+</body>
+
+</html>

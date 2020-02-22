@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=s, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="jquery-3.4.1.js"></script>
+
+    <script>
+        let request = url => {
+            return $.get(url, res => {
+                console.log(16)
+                return res;
+            }, 'json')
+        };
+
+        async function foo() {
+            const res1 = await request('a.json') // 异步
+            console.log(23, res1)
+
+            const res2 = await request('b.json')
+            console.log(res2)
+
+            const res3 = await request('c.json')
+            console.log(res3)
+        }
+
+        foo();
+    </script>
+</body>
+
+</html>

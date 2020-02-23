@@ -1,0 +1,188 @@
+@charset "UTF-8";
+/* 这是多行注释 */
+/*! 这是强制注释 */
+#div1 {
+  background-color: #f00;
+  height: 200px;
+}
+#div1 .aa {
+  color: #f00;
+}
+#div1 .aa .bb {
+  font-size: 12px;
+}
+#div1 .aa:hover {
+  color: #0f0;
+}
+
+#div2 {
+  color: #f00;
+}
+
+#div3 {
+  width: 200px;
+}
+
+.dialog-container {
+  width: 200px;
+}
+.dialog-title {
+  color: #f00;
+}
+.dialog-title-content {
+  font-size: 13px;
+}
+.dialog-title-close {
+  background: #ff0000;
+}
+.dialog-content {
+  float: left;
+  background-color: #f00;
+  background-image: url(xx.png);
+  background-position: center;
+  border-left-color: #0f0;
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+
+#div4 {
+  background: #f00;
+}
+
+#div5 {
+  width: 200px;
+  height: 200px;
+  background: #f00;
+  font-size: 12px;
+}
+
+#div6 {
+  width: 400px;
+  height: 400px;
+  background: #0f0;
+}
+
+#div7, #div8 {
+  width: 300px;
+  height: 300px;
+  background: #ff0;
+}
+#div7 .aa, #div8 .aa {
+  background: #f00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+#div9 {
+  width: 30%;
+}
+
+#div10 {
+  background: rgba(255, 0, 0, 0.3);
+}
+
+#div11 {
+  background: #fff;
+}
+
+#div12 {
+  font-size: 20px;
+}
+
+input [type] {
+  color: #Fff;
+}
+
+/* 当前的属性是: font-size */
+#div13 {
+  background: #ccc;
+}
+
+.col-lg-1 {
+  width: 1%;
+}
+
+.col-lg-2 {
+  width: 2%;
+}
+
+.col-lg-3 {
+  width: 3%;
+}
+
+.col-lg-4 {
+  width: 4%;
+}
+
+.col-lg-5 {
+  width: 5%;
+}
+
+.col-lg-6 {
+  width: 6%;
+}
+
+.col-lg-7 {
+  width: 7%;
+}
+
+.col-lg-8 {
+  width: 8%;
+}
+
+.col-lg-9 {
+  width: 9%;
+}
+
+.col-lg-10 {
+  width: 10%;
+}
+
+.col-lg-11 {
+  width: 11%;
+}
+
+.glyphicon-plus {
+  background: url(plus.png);
+}
+
+.glyphicon-music {
+  background: url(music.png);
+}
+
+.glyphicon-search {
+  background: url(search.png);
+}
+
+.glyphicon-heart {
+  background: url(heart.png);
+}
+
+.col-md-5 {
+  width: 5%;
+}
+
+.col-md-3 {
+  width: 3%;
+}
+
+.col-md-1 {
+  width: 1%;
+}
+
+#div14 {
+  background: #fff;
+}
+
+/*# sourceMappingURL=index.css.map */

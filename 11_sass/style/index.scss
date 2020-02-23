@@ -1,0 +1,196 @@
+/* 这是多行注释 */
+// 这是单行注释
+/*! 这是强制注释 */
+$color: #f00;
+$w: 200px;
+
+#div1 {
+    background-color: $color;
+    height: $w;
+
+    .aa {
+        color: $color;
+
+        .bb {
+            font-size: 12px;
+        }
+
+        &:hover {
+            color: #0f0;
+        }
+    }
+
+}
+
+#div2 {
+    color: $color;
+}
+
+#div3 {
+    width: $w;
+}
+
+.dialog {
+    &-container {
+        width: $w;
+    }
+
+    &-title {
+        color: $color;
+
+        &-content {
+            font-size: 13px;
+        }
+
+        &-close {
+            background: #ff0000;
+        }
+    }
+
+    &-content {
+        float: left;
+
+        background: {
+            color: #f00;
+            image: url(xx.png);
+            position: center;
+        }
+
+        ;
+
+        border: {
+            left: {
+                color: #0f0;
+                style: solid;
+                width: 1px;
+            }
+        }
+    }
+}
+
+$bg: background;
+
+#div4 {
+    #{$bg}: $color;
+}
+
+@mixin xx($num, $c:#ccc) {
+    width: $num;
+    height: $num;
+    background: $c;
+}
+
+#div5 {
+    @include xx(200px, #f00);
+    font-size: 12px;
+}
+
+#div6 {
+    @include xx(400px, #0f0);
+}
+
+#div7 {
+    @include xx($c:#ff0, $num:300px);
+
+    .aa {
+        background: $color;
+    }
+}
+
+#div8 {
+    @extend #div7;
+}
+
+@import 'base/common';
+
+#div9 {
+    width: percentage(30px/100px);
+}
+
+$r: rgba(255, 0, 0, .5);
+
+#div10 {
+    background: transparentize($r, .2);
+}
+
+$m: (light: #000, dark: #fff);
+
+#div11 {
+    background: map-get($m, dark);
+    // background: map-keys($m);
+}
+
+$fz: font-size;
+
+#div12 {
+    #{$fz}: 20px
+}
+
+$aa: input[type];
+
+#{$aa} {
+    color: #Fff;
+}
+
+/* 当前的属性是: #{$fz} */
+
+@function style($arg) {
+    @if($arg==1) {
+        @return #000;
+    }
+
+    @else if($arg==2) {
+        @return #fff;
+    }
+
+    @else {
+        @return #ccc;
+    }
+}
+
+#div13 {
+    background: style(8);
+}
+
+$column: 12;
+
+@for $i from 1 to $column {
+    .col-lg-#{$i} {
+        width: percentage($i / 100);
+    }
+}
+
+$icons: plus music search heart;
+
+@each $icon in $icons {
+    .glyphicon-#{$icon} {
+        background: url($icon + '.png');
+    }
+}
+
+$i: 5;
+
+@while $i>0 {
+    .col-md-#{$i} {
+        width: percentage($i / 100);
+    }
+
+    $i: $i - 2;
+}
+
+$map: (light: #fff, dark: #000);
+
+@function get-color($color) {
+    @if(map-has-key($map, $color)) {
+        @return map-get($map, $color);
+    }
+
+    @else {
+        @error '你传入的颜色不存在';
+        @return #ccc;
+    }
+}
+
+#div14{
+    background: get-color(light);
+}

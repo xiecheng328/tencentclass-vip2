@@ -1,0 +1,18 @@
+安装webpack环境：
+在前面的基础上(tsconfig.json)：
+1、npm init 初始化package.json
+2、tsc --init 初始化tsconfig.json
+3、npm i webpack webpack-cli webpack-dev-server -D
+4、build文件夹  存放配置文件 直接拷贝过来  四个文件
+5、npm i ts-loader typescript -D
+6、webpack.base.config  html-webpack-plugin 生成首页，并把js文件关联到html中，
+所以需要安装 npm i html-webpack-plugin –D 在src中创建index.html
+7、webpack.dev.config cheap-module-eval-source-map 增强编译调试 
+8、npm i clean-webpack-plugin -D 自动清空dist目录
+9、webpack.config.js    npm i webpack-merge -D  把配置文件合并
+10、修改package.json的main，修改入口文件: "main": "./src/index.ts",
+11、修改package.json的scripts:   "start": "webpack-dev-server --mode=development --config ./build/webpack.config.js",
+12、npm start 启动   index.ts中写代码，看界面的控制台
+13、配置生产环境，修改package.json的scripts，
+命令：  "build": "webpack --mode=production --config ./build/webpack.config.js",
+能够生成dist文件夹

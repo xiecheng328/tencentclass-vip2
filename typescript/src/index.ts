@@ -1,4 +1,7 @@
 // import './1_datatype'
 // import './2_function'
 // import './3_class'
-import './4_interface'
+// import './4_interface'
+// import './5_generics.ts'
+// import './6_module'
+import './7_namespace'

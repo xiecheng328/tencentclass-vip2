@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <ul>
+            <li v-for="(item, index) in arr"> {{item}} -- {{index}}</li>
+        </ul>
+        <ul>
+            <li v-for="user in users">
+                名字是：{{user.name}}
+                年龄是：{{user.age}}
+                <button @click="show(user)">showName</button>
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(val, key) in dog">
+                {{val}} {{key}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app', // 挂载元素
+            data: {
+                msg: 'Hello Wolrd',
+                arr: ['html', 'css', 'js', 'vue'],
+                users: [
+                    {
+                        name: '张三',
+                        age: 20
+                    }, {
+                        name: '李四',
+                        age: 18
+                    }, {
+                        name: '王五',
+                        age: 25
+                    }
+                ], 
+                dog: {
+                    name: '旺财',
+                    age: 2,
+                    color: 'white'
+                }
+            },
+            methods: {
+                show(u){
+                    console.log(u.name);
+                }
+            },
+        });
+
+
+    </script>
+
+</body>
+</html>

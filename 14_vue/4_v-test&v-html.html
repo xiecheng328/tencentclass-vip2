@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>{{msg2}}</div>
+        <div v-text="msg2"></div>
+        <div v-html="msg2"></div>
+
+        <div>阿斯顿发生{{msg3}}发送到发送到发</div>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app', // 挂载元素
+            data: {
+                msg: 'Hello Wolrd',
+                msg2: '<strong class="">v-for<strong>的详细用法可以通过以下<a href="">链接查看</a>教程详细说明。',
+                msg3: '发斯蒂芬'
+            }
+        });
+
+
+    </script>
+
+</body>
+</html>

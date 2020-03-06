@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red {
+            background: #ff0000;
+        }
+        .green{
+            color: #0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <img v-bind:src="imgUrl" alt="">
+        <!-- v-bind简写成: -->
+        <img :src="imgUrl" alt="">
+        <br>
+        <button @click="toggle">切换</button>
+        <h1 :class="{red: isRed}">你好</h1>
+        <h1 :class="['green', isRed?'red':'']">你好</h1>
+        <h1 :style="styleObj">世界</h1>
+
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app', // 挂载元素
+            data: {
+                imgUrl: 'https://cn.vuejs.org/images/logo.png',
+                isRed: false,
+                styleObj: {
+                    background: '#f00',
+                    color: '#0f0',
+                    'font-size': '40px'
+                }
+            },
+            methods: {
+                toggle() {
+                    this.isRed = !this.isRed;
+                },
+            },
+        });
+    </script>
+
+</body>
+
+</html>

@@ -11,6 +11,10 @@
         .red {
             background: #ff0000;
         }
+
+        .add-form {
+            margin: 20px 0;
+        }
     </style>
 </head>
 
@@ -19,6 +23,28 @@
     <div id="app" class="text-center">
         <h1>todolist</h1>
         <hr>
+        <!-- 搜索 -->
+        <form class="form-inline add-form" @submit.prevent>
+            <div class="form-group">
+                <label for="keyword">商品名称</label>
+                <input v-model="keyword" type="text" class="form-control" id="keyword" placeholder="请输入商品名称">
+            </div>
+            <button @click="searchProduct" type="submit" class="btn btn-default glyphicon glyphicon-search">搜索</button>
+        </form>
+        <!-- 增加 -->
+        <form class="form-inline add-form" @submit.prevent>
+            <div class="form-group">
+                <label for="product-name">商品名称</label>
+                <input v-model="productName" type="text" class="form-control" id="product-name" placeholder="请输入商品名称">
+            </div>
+            <div class="form-group">
+                <label for="product-price">商品价格</label>
+                <input v-model="productPrice" type="number" class="form-control" id="product-price"
+                    placeholder="请输入商品价格">
+            </div>
+            <button @click="addProduct" type="submit" class="btn btn-default glyphicon glyphicon-plus">增加</button>
+        </form>
+
         <table class="table table-bordered">
             <thead>
                 <tr class="warning">
@@ -80,8 +106,19 @@
                     isRed: false,
                 }],
                 checkedList: [],
+                productName: '',
+                productPrice: 0,
+                keyword: '', // 搜索的关键字
             },
             methods: {
+                // total() {
+                //     return this.productList.reduce((sum, elem) => {
+                //         if (elem.isRed) {
+                //             sum += parseInt(elem.productPrice)
+                //         }
+                //         return sum;
+                //     }, 0);
+                // },
                 // 选中，变红色
                 select(product) {
                     product.isRed = !product.isRed;
@@ -117,6 +154,22 @@
                     });
                     this.checkedList = [];
                 },
+                addProduct() {
+                    this.productList.push({
+                        productName: this.productName,
+                        productPrice: this.productPrice,
+                        isRed: false,
+                    });
+                    this.productName = '';
+                    this.productPrice = 0;
+                },
+                searchProduct() {
+                    this.productList = this.productList.filter(elem => {
+                        if (elem.productName.includes(this.keyword)) {
+                            return elem;
+                        }
+                    });
+                },
             },
             computed: {
                 total() {
@@ -129,7 +182,7 @@
                     return sum; */
                     return this.productList.reduce((sum, elem) => {
                         if (elem.isRed) {
-                            sum += elem.productPrice
+                            sum += parseInt(elem.productPrice)
                         }
                         return sum;
                     }, 0);

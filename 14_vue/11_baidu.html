@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="keyword">
+        
+    </div>
+
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                keyword: '',
+                list: [],
+            },
+            watch: {
+                keyword(val){
+                    console.log(val)
+                    // 向百度后端搜索接口发送请求
+                    
+
+                    // 请求回来的结果显示到页面上
+                    this.list = ['iphone11', 'iphoneX'];
+                }
+            },
+        })
+
+
+    </script>
+</body>
+</html>

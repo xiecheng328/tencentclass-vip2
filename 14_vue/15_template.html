@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <template v-for="user in users">
+            <h1>名字是:{{user.name}}</h1>
+            <h1>年龄是:{{user.age}}</h1>
+        </template>
+
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app', // 挂载元素
+            data: {
+                users: [{
+                    name: '张三',
+                    age: 20
+                }, {
+                    name: '李四',
+                    age: 18
+                }, {
+                    name: '王五',
+                    age: 25
+                }]
+            }
+        });
+    </script>
+
+</body>
+
+</html>

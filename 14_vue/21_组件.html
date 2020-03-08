@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+
+    </div>
+    <script src="vue.js"></script>
+
+    <script>
+        // 组件中的data必须是一个函数
+        Vue.component('button-counter', {
+            data: function () {
+                return { // new Object()
+                    count: 0
+                }
+            },
+            template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                num: 0
+            }
+        })
+    </script>
+</body>
+
+</html>

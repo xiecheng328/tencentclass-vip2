@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <todolist v-for="(product, index) in productList" 
+            :key="index" 
+            :productname="product.productName"
+            :productprice="product.productPrice" 
+            @click.native="select(product)"></todolist>
+        </ul>
+
+    </div>
+
+    <template id="product-tpl">
+        <li>
+            <span>商品名称:{{productname}}</span>
+            <span>商品价格:{{productprice}}</span>
+        </li>
+    </template>
+
+
+    <script src="vue.js"></script>
+    <script>
+        Vue.component('todolist', {
+            template: '#product-tpl',
+            // props: ['productname', 'productprice']
+            props: {
+                productname: String,
+                productprice: Number
+            }
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                productList: [{
+                    productName: '衣服',
+                    productPrice: 123,
+                    isRed: false,
+                }, {
+                    productName: '裤子',
+                    productPrice: 234,
+                    isRed: false,
+                }, {
+                    productName: '手机',
+                    productPrice: 8888,
+                    isRed: false,
+                }, {
+                    productName: '鞋',
+                    productPrice: 999,
+                    isRed: false,
+                }, {
+                    productName: '电脑',
+                    productPrice: 15000,
+                    isRed: false,
+                }]
+            },
+            methods: {
+                select(product) {
+                    console.log(product.productName);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

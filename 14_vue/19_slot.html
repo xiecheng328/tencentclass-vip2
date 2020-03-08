@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <comp1>
+            <span slot="solt1">插入到第1个slot插槽去</span>
+            <span slot="solt2">插入到第2个slot插槽去</span>
+        </comp1>
+
+        <comp1>
+            <div slot="solt2">我是个DIV</div>
+        </comp1>
+    </div>
+
+    <template id="tpl1">
+        <div>
+            <h1>
+                <span>这是第一个slot</span>
+                <slot name="solt1"></slot>
+            </h1>
+            <div>
+                <span>这是第二个slot</span>
+                <slot name="solt2"></slot>
+            </div>
+        </div>
+    </template>
+
+    <script src="vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app', // 挂载元素
+            data: {
+                msg: 'Hello Wolrd',
+            },
+            components: {
+                comp1: {
+                    template: '#tpl1'
+                }
+            }
+
+        });
+    </script>
+
+</body>
+
+</html>

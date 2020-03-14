@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html{
+            font-size: 10px;
+        }
+        div{
+            font-size: 4rem;/* 40 */
+            width: 20rem;
+            height: 20rem;
+        }
+        p{
+            font-size: 2rem; /*20*/
+            width: 10rem;
+            height: 10rem;
+            color: blue;
+        }
+        span{
+            font-size: 1.5rem;
+            display: block;
+            width: 7rem;
+            height: 6rem;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- px, em ,rem    响应式布局-->
+    <!--em相对于父元素，rem相对于根元素-->
+    <!--em
+    1.子元素字体大小的em是相对于父元素字体大小
+    2.元素的width、height、padding、margin用em的话，相对于该元素的font-size
+    -->
+
+    <!--rem
+    全部的长度都相对于根元素
+
+    -->
+    <div>
+        父元素div
+        <p>
+            子元素p
+            <span>
+                孙元素span
+            </span>
+        </p>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: red;
+            border: 1px solid black;
+            display: flex;
+            /*主轴*/
+            /*flex-direction: row;*/
+            /*flex-direction: row-reverse;*/
+            /*flex-direction: column-reverse;*/
+            /*justify-content: flex-start;*/
+            /*justify-content: center;*/
+            /*justify-content: space-around;*/
+            /*align-items: center;*/
+
+        }
+        .div2{
+            /*width: 100px;*/
+            height: 100px;
+            background: blue;
+            margin: 10px;
+        }
+        #div4{
+            /*order: -1;*/
+            flex-grow: 2;
+        }
+        #div5{
+            /*order: -1;*/
+            flex-grow: 1;
+        }
+        #div6{
+            /*order: -1;*/
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <!--flex: 弹性布局
+    弹性盒模型：有容器和项目 在容器设置display:flex
+    -->
+
+    <div id="div1">
+        <div class="div2" id="div4">1</div>
+        <div class="div2" id="div5">2</div>
+        <div class="div2" id="div6">3</div>
+    </div>
+
+
+
+
+</body>
+</html>

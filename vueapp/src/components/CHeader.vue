@@ -1,7 +1,7 @@
 <template>
-   <header>
+   <header :style="{background:$store.state.color}">
        <span>首页</span>
-       电影
+       {{$store.state.title}}
    </header>
 </template>
 

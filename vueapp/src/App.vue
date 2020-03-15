@@ -2,7 +2,7 @@
   <div id="app">
      <c-header></c-header>
       <div class="container">
-
+          <router-view></router-view>
       </div>
       <common-footer></common-footer>
   </div>
@@ -19,48 +19,15 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  .container{
+    margin:1rem 0;
   }
 }
 
-.fade-enter {
-  opacity: 0;
-}
-.fade-enter-to {
-  opacity: 1;
-}
-.fade-enter-active {
-  transition: opacity 1s ease;
-}
 
-.fade-leave {
-  // opacity: 1;
-  transform: translateX(0);
-}
-.fade-leave-to {
-  // opacity: 0;
-  transform: translateX(100%);
-}
-.fade-leave-active {
-  // transition: opacity 1s ease;
-  transition: transform 1s ease;
-}
 </style>

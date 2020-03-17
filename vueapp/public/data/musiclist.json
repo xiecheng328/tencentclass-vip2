@@ -1,0 +1,33 @@
+{
+  "albums": [{
+      "name": "飙升榜",
+      "id": 19723756,
+      "bg": "http://pic.qingmengtech.com:8080/qingmeng/data/img/soar_music.jpg"
+    },
+    {
+      "name": "新歌榜",
+      "id": 3779629,
+      "bg": "http://pic.qingmengtech.com:8080/qingmeng/data/img/new_music.jpg"
+    },
+    {
+      "name": "原创榜",
+      "id": 2884035,
+      "bg": "http://pic.qingmengtech.com:8080/qingmeng/data/img/original_music.jpg"
+    },
+    {
+      "name": "KTV麦榜",
+      "id": 21845217,
+      "bg": "http://pic.qingmengtech.com:8080/qingmeng/data/img/ktv_music.jpg"
+    },
+    {
+      "name": "华语金曲榜",
+      "id": 4395559,
+      "bg": "http://pic.qingmengtech.com:8080/qingmeng/data/img/chinese_music.jpg"
+    },
+    {
+      "name": "我的专辑",
+      "id": 98833242,
+      "bg": "http://pic.qingmengtech.com:8080/qingmeng/data/img/my_music.jpg"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "musicData": [ {
+    "title": "广东爱情故事",
+    "artist": "广东雨神",
+    "src": "http://www.170mv.com/kw/antiserver.kuwo.cn/anti.s?rid=MUSIC_29275079&response=res&format=mp3|aac&type=convert_url&br=128kmp3&agent=iPhone&callback=getlink&jpcallback=getlink.mp3",
+    "pic": "https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3283023278,2758205127&fm=58&bpow=1824&bpoh=1824",
+    "lrc": "http://pic.qingmengtech.com:8080/qingmeng/data/lrc/广东爱情故事.lrc"
+  }, {
+    "title": "就是爱你",
+    "artist": "陶喆",
+    "src": "http://www.170mv.com/kw/antiserver.kuwo.cn/anti.s?rid=MUSIC_53648730&response=res&format=mp3|aac&type=convert_url&br=128kmp3&agent=iPhone&callback=getlink&jpcallback=getlink.mp3",
+    "pic": "https://ss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=1407964657,2382644691&fm=58",
+    "lrc": "http://pic.qingmengtech.com:8080/qingmeng/data/lrc/就是爱你.lrc"
+  }, {
+    "title": "最美的期待",
+    "artist": "周笔畅",
+    "src": "http://www.170mv.com/kw/antiserver.kuwo.cn/anti.s?rid=MUSIC_40079535&response=res&format=mp3|aac&type=convert_url&br=128kmp3&agent=iPhone&callback=getlink&jpcallback=getlink.mp3",
+    "musicImgSrc": "http://singerimg.kugou.com/uploadpic/softhead/400/20180718/20180718110356316.jpg",
+    "lrc": "http://pic.qingmengtech.com:8080/qingmeng/data/lrc/最美的期待.lrc"
+  }, {
+    "title": "追光者",
+    "artist": "岑宁儿",
+    "src": "http://www.170mv.com/kw/antiserver.kuwo.cn/anti.s?rid=MUSIC_29267620&response=res&format=mp3|aac&type=convert_url&br=128kmp3&agent=iPhone&callback=getlink&jpcallback=getlink.mp3",
+    "pic": "https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=2556611937,1195664541&fm=58&bpow=2000&bpoh=2000",
+    "lrc": "http://pic.qingmengtech.com:8080/qingmeng/data/lrc/追光者.lrc"
+  }]
+}

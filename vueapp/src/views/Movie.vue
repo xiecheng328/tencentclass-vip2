@@ -8,12 +8,14 @@
     >
         <img :src="obj.images.small" />
         <div class="content">
-          <h3>{{obj.title}}</h3>
+          <h3>{{obj.title}} </h3>
           <p>
             <span v-for="cast in obj.casts" :key="cast.id">{{cast.name}}|</span>
           </p>
+          <p>{{obj.rating.average}}</p>
           <p>{{obj.collect_count}}已观看</p>
           <p>年份：{{obj.year}}</p>
+
           <p>
             <span v-for="(genre,index) in obj.genres" :key="index">{{genre}}</span>
           </p>

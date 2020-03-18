@@ -6,6 +6,7 @@ import MovieDetail from './../views/MovieDetail.vue'
 import Music from '../views/Music.vue'
 import Book from '../views/Book.vue'
 import Photo from '../views/Photo.vue'
+import MusicList from './../views/MusicList.vue'
 
 
 Vue.use(VueRouter)
@@ -31,6 +32,10 @@ const routes = [{
   {
     path:'/photo',
     component:Photo
+  },
+  {
+    path:'/music-list',
+    component:MusicList
   },{
     path: '*', // 404
     component: Error

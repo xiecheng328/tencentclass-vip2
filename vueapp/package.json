@@ -14,6 +14,7 @@
     "vue-aplayer": "^1.6.1",
     "vue-router": "^3.1.5",
     "vue-swipe": "^2.4.0",
+    "vue-touch": "^2.0.0-beta.4",
     "vuex": "^3.1.2"
   },
   "devDependencies": {

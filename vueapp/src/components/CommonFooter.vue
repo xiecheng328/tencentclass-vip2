@@ -46,7 +46,7 @@ export default {
         // console.log( this.$route.path);
         this.menu.forEach((obj)=>{
             // 如果当前路径 跟menu中的某个匹配  
-            if(obj.path == this.$route.path){
+            if(this.$route.path.includes(obj.path)){ //   this.$route.pat :/music-list 包含 /music 
                 this.change(obj);
             }
         })

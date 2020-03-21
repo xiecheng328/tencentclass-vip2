@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="./browser.min.js"></script>
+  <script src="./react.development.js"></script>
+  <script src="./react-dom.development.js"></script>
+
+  <script type="text/babel">
+    class Parent extends React.Component {
+      constructor(params) {
+        super(params)
+
+        this.state = {
+          number: 1
+        }
+
+        this.add = this.add.bind(this)
+      }
+
+      add () {
+        this.setState({
+          number: this.state.number + 1
+        })
+      }
+
+      render() {
+        return (
+          <div>
+            <h1>父组件</h1>
+            <p>number: {this.state.number}</p>
+            <Child p = {this} addfn = {this.add} />
+          </div>
+
+        )
+      }
+    }
+
+    class Child extends React.Component {
+      constructor(params) {
+        super(params)
+      }
+      // 获取父组件state 修改state中的number
+      addFun() {
+        console.log(this.props.p)
+        // 能实现 非常不建议这么写
+        // this.props.p.setState({
+        //   number: this.props.p.state.number + 1
+        // })
+
+        // this.props.p.add()
+        this.props.addfn()
+
+      }
+
+      render() {
+        return (
+          <div>
+            <h2>子组件</h2>
+            <button onClick={this.addFun.bind(this)}>点击父组件number+1</button>
+          </div>
+
+        )
+      }
+    }
+
+    ReactDOM.render(<Parent/>, document.getElementById('app'))
+    
+  
+  </script>
+</body>
+</html>

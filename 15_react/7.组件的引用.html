@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="./browser.min.js"></script>
+  <script src="./react.development.js"></script>
+  <script src="./react-dom.development.js"></script>
+  <!-- 
+    组件的引用 
+    调用组件时可以定义ref属性来给组件起一个别名
+    this.refs.xxx
+
+    ref属性可以引用组件和元素
+
+    组件的状态只能组件内部直接修改 其他组件不可以直接修改状态
+
+   -->
+
+  <script type="text/babel">
+    class Child extends React.Component {
+      constructor(params) {
+        super(params)
+
+        this.state = {
+          number: 1
+        }
+
+        this.addFun = this.addFun.bind(this)
+      }
+
+      addFun(data) {
+        this.setState({
+          number: this.state.number+data*1
+        })
+      }
+
+      render() {
+        return (
+          <div>
+            <h2>我是子组件</h2>
+            <p> number: {this.state.number} </p>
+
+          </div>
+        )
+      }
+    }
+
+    class Parent extends React.Component {
+      constructor(params) {
+        super(params)
+
+        this.add = this.add.bind(this)
+      }
+
+      add() {
+        // this.refs.childcom 子组件
+        // 可以实现，但是非常不建议使用
+        // this.refs.childcom.setState({
+        //   number: this.refs.childcom.state.number+1
+        // })
+
+        
+        console.log(this.refs.myInput.value)
+        this.refs.childcom.addFun(this.refs.myInput.value)
+      }
+
+      render() {
+        return (
+          <div>
+            <h1>我是父组件</h1>
+            <button onClick={this.add}>点击修改子组件number+1</button>
+            <input type="text" ref="myInput" />
+            <Child ref="childcom" />
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <Parent/>,
+      document.getElementById('app')
+    )
+  
+
+
+  </script>
+</body>
+</html>

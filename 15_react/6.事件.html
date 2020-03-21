@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="./browser.min.js"></script>
+  <script src="./react.development.js"></script>
+  <script src="./react-dom.development.js"></script>
+
+  <script type="text/babel">
+    // 事件名是驼峰式写法 onclick => onClick onblur => onBlur 
+    // 定义事件 需要修改this指向
+    // 如果组件内的属性需要修改 就要存在状态里 state 
+    // state必须通过setState()方法来修改
+    // state的初始化必须放在constructor中
+    // event 事件对象
+    // 阻止浏览器的默认行为只能实用preventDefault 不能使用return false
+    // props属性是只读的不可以修改
+   
+    
+    class Com extends React.Component {
+      constructor(params) {
+        super(params)
+
+        this.num = 2
+        // 状态
+        this.state = {
+          number: 1
+        }
+
+        // this.fun = this.fun.bind(this)
+      }
+
+      fun() {
+        console.log(event)
+        // this 
+        // this.num++
+        // console.log(this.num)
+
+        // setState 修改状态的方法
+        this.setState({
+          number: this.state.number+1
+        })
+      }
+
+      fn() {
+        this.props.age++
+        console.log(this.props.age)
+      }
+
+      render() {
+        console.log(this.props)
+        return (
+          <div>
+            <p> num: {this.num} </p>
+            <p> number: {this.state.number}</p>
+            <button onClick={this.fun.bind(this)}>点击</button>
+            <button onClick={this.fn.bind(this)}>点击2</button>
+
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <Com age={18}> </Com>,
+      document.getElementById('app')
+    )
+
+  </script>
+</body>
+</html>

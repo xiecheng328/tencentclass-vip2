@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- 用于编译JSX语法 -->
+  <script src="./browser.min.js"></script>
+  <!-- react核心库 -->
+  <script src="./react.development.js"></script>
+  <!-- 操作dom 依赖react.js -->
+  <script src="./react-dom.development.js"></script>
+
+  <script type="text/babel">
+    // 表达式用{}来表示  
+    /*
+      <p style = { {
+          color: 'blue',
+          backgroundColor: 'yellow'
+        } }>hello react</p>
+      第一个{}代表是一个表达式 第二个{}代表是一个object类型的
+    */
+    let name = 'xm'
+    let _style = {
+      color: 'red',
+      backgroundColor: 'pink'
+    }
+    
+    ReactDOM.render(
+      <div>
+        hello { name }
+        <p style = {_style}>hello react</p>
+        <p style = { {
+          color: 'blue',
+          backgroundColor: 'yellow'
+        } }>hello react</p>
+        <p>{ 1+2 }</p>
+
+      </div>,
+      document.getElementById('app')
+    )
+  
+  </script>
+</body>
+</html>

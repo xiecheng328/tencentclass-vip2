@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <!-- 用于编译JSX语法 -->
+  <script src="./browser.min.js"></script>
+  <!-- react核心库 -->
+  <script src="./react.development.js"></script>
+  <!-- 操作dom 依赖react.js -->
+  <script src="./react-dom.development.js"></script>
+
+  <script type="text/babel">
+    // 第一个参数是需要显示的html片段
+    // 第二个参数是需要挂在到哪个元素上
+    ReactDOM.render(
+      <h1>hello world!</h1>,
+      document.getElementById('app')
+    )
+  
+  </script>
+</body>
+</html>

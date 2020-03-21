@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 
+    模块： js
+    组件： html + css +js
+   -->
+
+  <div id="app"></div>
+
+  <script src="./browser.min.js"></script>
+  <script src="./react.development.js"></script>
+  <script src="./react-dom.development.js"></script>
+
+  <script type="text/babel">
+    // 函数组件 通过 function 定义 （无状态组件）
+    // 组件名字的首字母必须大写 
+
+    // 通过props来接收传参 props是一个object
+    function Com(props) {
+      console.log(props)
+      return (
+        <div>
+          <h1>我是 {props.title} </h1>
+        </div>
+      )
+    }
+
+    ReactDOM.render(
+      <Com title="zs" age={ 18 } info={ {
+        height: '180cm',
+        weight: '70kg'
+      } } />,
+      document.getElementById('app')
+    )
+    // 组件传参 eg： title这种写法 只能传strig类型  age/info 这类写法可以传任何类型的内容
+  </script>
+
+</body>
+</html>

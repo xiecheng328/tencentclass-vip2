@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="./browser.min.js"></script>
+  <script src="./react.development.js"></script>
+  <script src="./react-dom.development.js"></script>
+
+  <script type="text/babel">
+    // 列表渲染 使用map方法 一定要设置key属性（唯一）
+
+    class Com extends React.Component {
+      constructor(params) {
+        super(params)
+
+       
+      }
+
+      render() {
+        let list = [
+          {
+            name: 'zs',
+            age: 18
+          },
+          {
+            name: 'ls',
+            age: 19
+          }
+        ]
+
+        let _list = list.map((value, index) => (
+          <li key={index}> 姓名：{value.name} 年龄：{value.age}</li>
+        ))
+
+        return (
+          <div>
+            <ul>
+              {_list}
+            </ul>
+
+            <ul>
+              {
+                list.map((value, index) => (
+                  <li key={index}>{value.name}:{value.age}</li>
+                ))
+              }
+            </ul>
+
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(<Com/>, document.getElementById('app'))
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="./browser.min.js"></script>
+  <script src="./react.development.js"></script>
+  <script src="./react-dom.development.js"></script>
+
+  <script type="text/babel">
+    class Main extends React.Component {
+      constructor(params) {
+        super(params)
+
+        this.state = {
+          isShow: false
+        }
+
+        this.change = this.change.bind(this)
+      }
+      change() {
+        this.setState({
+          isShow: !this.state.isShow
+        })
+      }
+      render() {
+        return (
+          <div>
+            <button onClick={this.change}>点击获取验证码</button>
+            {
+              this.state.isShow ? <Clock number={10} stop={this.change}/> : null
+            }
+            
+          </div>
+
+        )
+      }
+    }
+
+    class Clock extends React.Component {
+      constructor(params) {
+        super(params)
+
+        this.state = {
+          num: -1
+        }
+      }
+
+      static getDerivedStateFromProps(nextProps, nextState) {
+        console.log(nextProps, nextState)
+
+        if (nextState.num == -1) {
+          return {
+            num: nextProps.number
+          }
+        } else {
+          return null
+        }
+      }
+
+      // componentDidMount 只会在挂载的时候执行一次
+      componentDidMount() {
+        console.log('componentDidMount')
+
+        this.timer = setInterval(() => {
+          console.log(12313)
+          this.setState({
+            num: this.state.num-1
+          }) 
+        }, 1000);
+      }
+
+      // shouldComponentUpdate 需要返回一个boolean
+      shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate')
+        if (nextState.num <=0 ) {
+          this.props.stop()
+          return false
+        }
+        return true
+      }
+
+      componentDidUpdate() {
+        console.log('componentDidUpdate')
+      }
+
+      componentWillUnmount() {
+        clearInterval(this.timer)
+        console.log('componentWillUnMount')
+      }
+
+      render() {
+        console.log('render')
+        return (
+          <div>
+            <p> {this.state.num} 秒后重新获取验证码 </p>
+          </div>
+
+        )
+      }
+    }
+
+    ReactDOM.render(<Main/>, document.getElementById('app'))
+
+  </script>
+</body>
+</html>

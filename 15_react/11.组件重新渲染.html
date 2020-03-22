@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="./browser.min.js"></script>
+  <script src="./react.development.js"></script>
+  <script src="./react-dom.development.js"></script>
+
+  <script type="text/babel">
+    // 组件重新渲染
+    // 1.setState 
+    // 2.props发生了改变
+    // 3.forceUpdate()
+    
+    class Com extends React.Component {
+      constructor(params) {
+        super(params)
+
+        this.state = {
+          number: 1
+        }
+
+        this.num = 8
+
+        this.change = this.change.bind(this)
+      }
+
+      change() {
+        // this.state.number++
+        console.log(this.state.number)
+
+        // this.setState({
+        //   number: this.state.number+1
+        // })
+
+        this.num++
+        this.forceUpdate()
+        console.log(this.num)
+      }
+
+      render() {
+        console.log('渲染了')
+        return (
+          <div>
+            <h2>子组件</h2>
+            <button onClick={this.change}>change</button>
+            <p> number:{ this.state.number }</p>
+            <p> num:{ this.num }</p>
+
+            {
+
+              this.props.tag ? <p>1111</p> : <p>2222</p>
+
+            }
+          </div>
+        )
+      }
+    }
+
+
+    class Main extends React.Component {
+      constructor(params) {
+        super(params)
+
+        this.state = {
+          tag: true
+        }
+
+        this.change = this.change.bind(this)
+      }
+
+      change() {
+        this.setState({
+          tag: !this.state.tag
+        })
+      }
+
+      render() {
+        return (
+          <div>
+            <h1>父组件</h1>
+            <button onClick={this.change}>change</button>
+            
+
+            <Com tag={this.state.tag}/>
+          </div>
+        )
+      }
+    }
+
+
+
+    ReactDOM.render(<Main/>, document.getElementById('app'))
+  
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active{
+      background: pink;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script src="./browser.min.js"></script>
+  <script src="./react.development.js"></script>
+  <script src="./react-dom.development.js"></script>
+
+
+  <script type="text/babel">
+    // 主组件
+    class Main extends React.Component {
+      constructor(params) {
+        super(params)
+
+        this.state = {
+          todoList: [
+            {
+              id: 1,
+              name: '吃饭',
+              isActive: true
+            },
+            {
+              id: 2,
+              name: '睡觉',
+              isActive: false
+            },
+            {
+              id: 3,
+              name: '打豆豆',
+              isActive: false
+            }
+          ],
+          showList: [
+            {
+              id: 1,
+              name: '吃饭',
+              isActive: true
+            },
+            {
+              id: 2,
+              name: '睡觉',
+              isActive: false
+            },
+            {
+              id: 3,
+              name: '打豆豆',
+              isActive: false
+            }
+          ],
+        }
+
+        this.add = this.add.bind(this)
+        this.change = this.change.bind(this)
+        this.del = this.del.bind(this)
+        this.search = this.search.bind(this)
+      }
+
+      // 向数组中追加数据
+      add(value) {
+        
+        let todoList = [...this.state.todoList]
+
+        todoList.push({
+          id: Math.random(),
+          name: value,
+          isActive: false
+        })
+
+        this.setState({
+          todoList,
+          showList: todoList
+        })
+      }
+
+      // 切换状态
+      change(id) {
+        let todoList = [...this.state.todoList] 
+        todoList.forEach(item => {
+          if (item.id == id) {
+            item.isActive = !item.isActive
+          }
+        })
+
+        this.setState({
+          todoList,
+          showList: todoList
+        })
+      }
+
+      // 根据id删除列表项
+      del(id) {
+        let todoList = this.state.todoList.filter(item => {
+          return item.id != id
+        })
+
+        this.setState({
+          todoList,
+          showList: todoList
+        })
+      }
+
+      // 搜索
+      search(value) {
+        // 判断数组中每一项的name中是否包含value
+        let showList = this.state.todoList.filter(item => {
+          return item.name.includes(value)
+        })
+
+        this.setState({
+          showList
+        })
+      }
+
+      render() {
+        return (
+          <div>
+            <h1> TO DO LIST </h1>
+            <Search search={this.search}/>
+            <Add add={this.add} />
+            <List todoList={this.state.showList} change={this.change} del={this.del} />
+          </div>
+        )
+      }
+    }
+
+    class Search extends React.Component {
+      constructor(params) {
+        super(params)
+      }
+      searchFun() {
+        this.props.search(event.target.value)
+      }
+      render() {
+        return (
+          <div>
+            搜索：
+            <input type="text" onKeyUp={this.searchFun.bind(this)}/>
+          </div>
+        )
+      }
+    }
+
+    class Add extends React.Component {
+      constructor(params) {
+        super(params)
+      }
+
+      addFun() {
+        this.props.add(this.refs.myInput.value)
+        this.refs.myInput.value = ''
+      }
+
+      render() {
+        return (
+          <div>
+            添加：
+            <input type="text" ref="myInput" />
+            <button onClick={this.addFun.bind(this)}>确认添加</button>
+          </div>
+        )
+      }
+    }
+
+    class List extends React.Component {
+      constructor(params) {
+        super(params)
+      }
+      // 切换选中状态（把当前这项的id传给父组件）
+      changeFun(id) {
+        this.props.change(id)
+      }
+
+      // 根据id删除列表
+      delFun(id) {
+        this.props.del(id)
+      }
+
+      render() {
+        return (
+          <ul>
+            {
+              this.props.todoList.map(item => (
+                <li key={item.id} className={ item.isActive ? 'active' : '' }>
+                  <input type="checkbox" defaultChecked={item.isActive} onChange={this.changeFun.bind(this,item.id)}/>
+                  <span> {item.name} </span>
+                  <button onClick={this.delFun.bind(this, item.id)}>删除</button>
+                </li>
+              ))
+            }
+          </ul>
+        )
+      }
+    }
+    
+    ReactDOM.render(<Main/>, document.getElementById('app'))
+  
+  </script>
+</body>
+</html>

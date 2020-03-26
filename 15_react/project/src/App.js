@@ -5,6 +5,8 @@ import About from './components/About'
 import Test from './components/Test'
 import Course from './components/Course'
 import List from './components/List'
+import Number from './components/Number'
+import Num from './components/Num'
 
 import './App.css';
 
@@ -20,7 +22,7 @@ function App() {
               pathname, 路径名称
               search, 查询参数
               hash,
-              state, 可以以对象的形式传参，但不会显示在页面的url中
+              state, 可以以对象的形式传参，但不会显示在页面的url中 如果是hash模式 刷新页面参数会丢失
               query, 也是以对象的形式传参 但是刷新页面参数会丢失
             } 
             通过props.location获取参数 / props.history.location
@@ -43,6 +45,8 @@ function App() {
             channel: 123
           }
         }}>关于我们 路由跳转传参</Link> | 
+        <Link to="/number">计数器</Link> |
+        <Link to="/num">计数器2.0</Link> |
       </div>
 
       <div>
@@ -58,6 +62,8 @@ function App() {
         <Route path="/aboutabc" component = {Test} />
         <Route path="/course" component = {List} />
         <Route path="/course/:id" component = {Course} />
+        <Route path="/number" component = {Number} />
+        <Route path="/num" component = {Num} />
 
         {/* 
           Switch 匹配符合条件的第一个组件 我们需要把首页（/）写在最后面

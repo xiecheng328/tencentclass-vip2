@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom'
+import {store} from '../store'
 
 class Test extends Component {
+  constructor(params) {
+    super(params)
+
+    this.state = {
+      number: store.getState().number
+    }
+  }
   fun() {
     // this.props.history.goBack()
     // this.props.history.goForward()
@@ -18,6 +26,8 @@ class Test extends Component {
         <h1>Test</h1>
         { this.props.title }
         <button onClick={this.fun.bind(this)}>点击</button>
+
+        <p>number:{this.state.number}</p>
       </div>
     );
   }

@@ -8,6 +8,8 @@ import List from './components/List'
 import Number from './components/Number'
 import Num from './components/Num'
 
+import Demo from './components/Demo'
+
 import './App.css';
 
 function App() {
@@ -47,6 +49,7 @@ function App() {
         }}>关于我们 路由跳转传参</Link> | 
         <Link to="/number">计数器</Link> |
         <Link to="/num">计数器2.0</Link> |
+        <Link to="/demo">Demo</Link> |
       </div>
 
       <div>
@@ -64,6 +67,7 @@ function App() {
         <Route path="/course/:id" component = {Course} />
         <Route path="/number" component = {Number} />
         <Route path="/num" component = {Num} />
+        <Route path="/demo" component = {Demo} />
 
         {/* 
           Switch 匹配符合条件的第一个组件 我们需要把首页（/）写在最后面

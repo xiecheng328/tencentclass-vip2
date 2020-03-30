@@ -1,0 +1,12 @@
+.common-header{
+  height: 60px;
+  padding: 0 20px;
+  text-align: right;
+  border-bottom: 1px solid #ccc;
+}
+.common-header-btn{
+  margin-top: 15px;
+}
+.common-header img {
+  width: 60px;
+}

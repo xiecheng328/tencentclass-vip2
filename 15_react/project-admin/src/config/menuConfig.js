@@ -1,0 +1,54 @@
+const menuList = [
+  {
+    title:"欢迎",
+    path:'/home',
+    icon:'icon-shouye',
+  },
+  {
+    title:"轮播图信息",
+    path:'/banner',
+    icon:'icon-tupian2',
+  },
+  {
+    title:"用户管理",
+    path:'/user',
+    icon:'icon-yonghu',
+    children:[
+      {
+        title:"创建用户",
+        path:'/user/add'
+      },
+      {
+        title:"用户列表",
+        path:'/user/list'
+      },
+    ]
+  },
+  {
+    title:"课程分类",
+    path:'/classify',
+    icon:'icon-leimupinleifenleileibie--1',
+    children:[
+      {
+        title:"分类列表",
+        path:'/classify/list'
+      },
+      {
+        title:"path列表",
+        path:'/classify/path'
+      },
+    ]
+  },
+  {
+    title:"教师信息",
+    path:'/teacher',
+    icon:'icon-jiaoshi',
+  },
+  {
+    title:"课程信息",
+    path:'/course',
+    icon:'icon-zuoyeguanli',
+  }
+]
+
+export default menuList;

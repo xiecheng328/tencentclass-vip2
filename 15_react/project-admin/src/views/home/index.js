@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Meng from '../../assets/images/meng.png'
+import Qing from '../../assets/images/qing.png'
 import './index.css'
 
 function mapStateToProps(state) {
@@ -29,8 +31,8 @@ class index extends Component {
         }
         <h1>欢迎进入青盟课堂后台管理系统</h1>
         <div>
-          <img src="http://localhost:3000/static/media/meng.2320cd62.png" />
-          <img src="http://localhost:3000/img/qing.png" />
+          <img src={Meng} />
+          <img src={Qing} />
         </div>
 
       </div>

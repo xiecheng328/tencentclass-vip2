@@ -46,6 +46,8 @@ class index extends Component {
     this.state = {
       bannerList: []
     }
+
+    this.number = 1
   }
   componentDidMount() {
     axios.get('https://www.qmtech.com/getList')
